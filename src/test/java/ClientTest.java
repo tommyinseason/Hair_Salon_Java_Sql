@@ -1,9 +1,8 @@
 import org.junit.*;
 import static org.junit.Assert.*;
 import org.sql2o.*;
-import java.util.Arrays;
 
-public class StylistTest {
+public class ClientTest {
 
   @Before
   public void setUp() {
@@ -21,64 +20,61 @@ public class StylistTest {
   }
 
   @Test
-  public void stylist_instantiatesCorrectly_true() {
-    Stylist myStylist = new Stylist("Mary");
-    assertEquals(true, myStylist instanceof Stylist);
+  public void Client_instantiatesCorrectly_true() {
+    Client myClient = new Client("Mary", 1);
+    assertEquals(true, myClient instanceof Client);
   }
 
   @Test
-  public void getName_StylistInstantiatesWithName_String() {
-    Stylist myStylist = new Stylist("Mary");
-    assertEquals("Mary", myStylist.getName());
+  public void getName_instantiatesWithName_String() {
+    Client myClient = new Client("Mary", 1);
+    assertEquals("Thai E San", myClient.getName());
+  }
+
+  @Test
+  public void getLocation_instantiatesWithLocation_String() {
+    Client myClient = new Client("Mary", 1);
+    assertEquals("SW", myClient.getLocation());
+  }
+
+  @Test
+  public void getPrice_instantiatesWithPrice_int() {
+    Client myClient = new Client("Mary", 1);
+    assertEquals(2, myClient.getPrice());
   }
 
   @Test
   public void all_emptyAtFirst() {
-    assertEquals(Stylist.all().size(), 0);
+    assertEquals(Client.all().size(), 0);
   }
 
   @Test
-  public void equals_returnsTrueIfNamesAretheSame() {
-    Stylist firstStylist = new Stylist("Mary");
-    Stylist secondStylist = new Stylist("Mary");
-    assertTrue(firstStylist.equals(secondStylist));
+  public void equals_returnsTrueIfDescriptionsAreTheSame() {
+    Client firstClient = new Client("Mary", 1);
+    Client secondClient = new Client("Mary", 1);
+    assertTrue(firstClient.equals(secondClient));
   }
 
   @Test
-  public void save_savesIntoDatabase_true() {
-    Stylist myStylist = new Stylist("Mary");
-    myStylist.save();
-    assertTrue(Stylist.all().get(0).equals(myStylist));
+  public void save_returnsTrueIfDescriptionsAreTheSame() {
+    Client myClient = new Client("Mary", 1);
+    myClient.save();
+    assertTrue(Client.all().get(0).equals(myClient));
   }
+
   @Test
   public void save_assignsIdToObject() {
-    Stylist myStylist = new Stylist("Mary");
-    myStylist.save();
-    Stylist savedStylist = Stylist.all().get(0);
-    assertEquals(myStylist.getId(), savedStylist.getId());
-  }
-  @Test
-  public void find_findStylistInDatabase_true() {
-    Stylist myStylist = new Stylist("Mary");
-    myStylist.save();
-    Stylist savedStylist = Stylist.find(myStylist.getId());
-    assertTrue(myStylist.equals(savedStylist));
+    Client myClient = new Client("Mary", 1);
+    myClient.save();
+    Client savedClient = Client.all().get(0);
+    assertEquals(myClient.getId(), savedClient.getId());
   }
 
   @Test
-  public void getClients_retrievesAllClientsFromDataBase_Clients() {
-    Stylist myStylist = new Stylist("Mary");
-    myStylist.save();
-
-    System.out.println("myStylistid " + myStylist.getId());
-
-    Client firstClient = new Client("Mary", myStylist.getId());
-    firstClient.save(); //name, c id, location, price
-    Client secondClient = new Client("Mark", myStylist.getId());
-    secondClient.save();
-
-    System.out.println("myStylist Clients " + myStylist.getClients());
-    Client[] clients = new Client[] { firstClient, secondClient };
-    assertTrue(myStylist.getClients().containsAll(Arrays.asList(Clients)));
+  public void find_findsClientInDatabase_true() {
+    Client myClient = new Client ("Mary", 1);
+    myClient.save();
+    Client savedClient = Client.find(myClient.getId());
+    assertTrue(myClient.equals(savedClient));
   }
 }

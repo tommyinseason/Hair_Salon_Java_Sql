@@ -59,7 +59,7 @@ public class Client {
       Client client = con.createQuery(sql)
         .addParameter("id", id)
         .executeAndFetchFirst(Client.class);
-      return Client;
+      return client;
     }
   }
 }
