@@ -21,7 +21,7 @@ public class App {
         HashMap<String, Object> model = new HashMap<String, Object>();
         String type = request.queryParams("type");
         Stylist newStylist = new Stylist(type);
-        newStylist.save(); 
+        newStylist.save();
         model.put("template", "templates/stylist-success.vtl");
         return new ModelAndView(model, layout);
       }, new VelocityTemplateEngine());
@@ -58,7 +58,7 @@ public class App {
      get("/clients", (request, response) -> {
          HashMap<String, Object> model = new HashMap<String, Object>();
          Stylist stylist = Stylist.find(Integer.parseInt(request.queryParams("stylist_id")));
-         List<Client> clients = Client.getClients();
+         List<Client> client = client.getClients();
          model.put("clients", Client.all());
          model.put("template", "templates/clients.vtl");
          return new ModelAndView(model, layout);
