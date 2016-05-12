@@ -44,19 +44,19 @@ public class StylistTest {
     assertTrue(firstStylist.equals(secondStylist));
   }
 
-  // @Test
-  // public void save_savesIntoDatabase_true() {
-  //   Stylist myStylist = new Stylist("Mary");
-  //   myStylist.save();
-  //   assertTrue(Stylist.all().get(0).equals(myStylist));
-  // }
-  // @Test
-  // public void save_assignsIdToObject() {
-  //   Stylist myStylist = new Stylist("Mary");
-  //   myStylist.save();
-  //   Stylist savedStylist = Stylist.all().get(0);
-  //   assertEquals(myStylist.getId(), savedStylist.getId());
-  // }
+  @Test
+  public void save_savesIntoDatabase_true() {
+    Stylist myStylist = new Stylist("Mary");
+    myStylist.save();
+    assertTrue(Stylist.all().get(0).equals(myStylist));
+  }
+  @Test
+  public void save_assignsIdToObject() {
+    Stylist myStylist = new Stylist("Mary");
+    myStylist.save();
+    Stylist savedStylist = Stylist.all().get(0);
+    assertEquals(myStylist.getId(), savedStylist.getId());
+  }
   // @Test
   // public void find_findStylistInDatabase_true() {
   //   Stylist myStylist = new Stylist("Mary");
