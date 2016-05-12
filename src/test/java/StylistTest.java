@@ -25,18 +25,18 @@ public class StylistTest {
     Stylist myStylist = new Stylist("Mary");
     assertEquals(true, myStylist instanceof Stylist);
   }
-  //
-  // @Test
-  // public void getName_StylistInstantiatesWithName_String() {
-  //   Stylist myStylist = new Stylist("Mary");
-  //   assertEquals("Mary", myStylist.getName());
-  // }
-  //
-  // @Test
-  // public void all_emptyAtFirst() {
-  //   assertEquals(Stylist.all().size(), 0);
-  // }
-  //
+
+  @Test
+  public void getName_StylistInstantiatesWithName_String() {
+    Stylist myStylist = new Stylist("Mary");
+    assertEquals("Mary", myStylist.getName());
+  }
+
+  @Test
+  public void all_emptyAtFirst() {
+    assertEquals(Stylist.all().size(), 0);
+  }
+  
   // @Test
   // public void equals_returnsTrueIfNamesAretheSame() {
   //   Stylist firstStylist = new Stylist("Mary");
