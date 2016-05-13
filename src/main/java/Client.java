@@ -4,12 +4,12 @@ import java.util.List;
 public class Client {
   private int id;
   private String name;
-  private int stylist_id;
+  private int stylistid;
 
 
-  public Client (String name, int stylist_id) {
+  public Client (String name, int stylistid) {
     this.name = name;
-    this.stylist_id = stylist_id;
+    this.stylistid = stylistid;
 
   }
 
@@ -22,11 +22,11 @@ public class Client {
   }
 
   public int getStylistId() {
-    return stylist_id;
+    return stylistid;
   }
 
   public static List<Client> all() {
-    String sql = "SELECT id, name, stylist_id FROM clients";
+    String sql = "SELECT id, name, stylistid FROM clients";
     try(Connection con = DB.sql2o.open()) {
       return con.createQuery(sql).executeAndFetch(Client.class);
     }
@@ -44,10 +44,10 @@ public class Client {
   }
   public void save() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO clients (name, stylist_id) VALUES (:name, :stylist_id);";
+      String sql = "INSERT INTO clients (name, stylistid) VALUES (:name, :stylistid);";
       this.id = (int) con.createQuery(sql, true)
         .addParameter("name", this.name)
-        .addParameter("stylist_id", this.stylist_id)
+        .addParameter("stylistid", this.stylistid)
         .executeUpdate()
         .getKey();
     }

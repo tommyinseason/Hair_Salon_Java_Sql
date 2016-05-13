@@ -11,34 +11,34 @@ public class App {
     staticFileLocation("/public");
     String layout = "templates/layout.vtl";
 
-    // get("/", (request, response) -> {
-    //      HashMap<String, Object> model = new HashMap<String, Object>();
-    //      model.put("template", "templates/index.vtl");
-    //      return new ModelAndView(model, layout);
-    //    }, new VelocityTemplateEngine());
-    //
-    // post("/stylists", (request, response) -> {
-    //     HashMap<String, Object> model = new HashMap<String, Object>();
-    //     String type = request.queryParams("type");
-    //     Stylist newStylist = new Stylist(type);
-    //     newStylist.save();
-    //     model.put("template", "templates/stylist-success.vtl");
-    //     return new ModelAndView(model, layout);
-    //   }, new VelocityTemplateEngine());
-    //
-    // get("/stylists", (request, response) -> {
-    //     HashMap<String, Object>model = new HashMap<String, Object>();
-    //     model.put("stylists", Stylist.all());
-    //     model.put("template", "templates/stylists.vtl");
-    //     return new ModelAndView(model, layout);
-    //   }, new VelocityTemplateEngine());
-    //
-    // get("/stylists/new", (request, response) -> {
-    //     HashMap<String, Object> model = new HashMap<String, Object>();
-    //     model.put("template", "templates/stylist-form.vtl");
-    //     return new ModelAndView(model, layout);
-    //   }, new VelocityTemplateEngine());
-    //
+    get("/", (request, response) -> {
+         HashMap<String, Object> model = new HashMap<String, Object>();
+         model.put("template", "templates/index.vtl");
+         return new ModelAndView(model, layout);
+       }, new VelocityTemplateEngine());
+
+    post("/stylists", (request, response) -> {
+        HashMap<String, Object> model = new HashMap<String, Object>();
+        String type = request.queryParams("type");
+        Stylist newStylist = new Stylist(type);
+        newStylist.save();
+        model.put("template", "templates/stylist-success.vtl");
+        return new ModelAndView(model, layout);
+      }, new VelocityTemplateEngine());
+
+    get("/stylists", (request, response) -> {
+        HashMap<String, Object>model = new HashMap<String, Object>();
+        model.put("stylists", Stylist.all());
+        model.put("template", "templates/stylists.vtl");
+        return new ModelAndView(model, layout);
+      }, new VelocityTemplateEngine());
+
+    get("/stylists/new", (request, response) -> {
+        HashMap<String, Object> model = new HashMap<String, Object>();
+        model.put("template", "templates/stylist-form.vtl");
+        return new ModelAndView(model, layout);
+      }, new VelocityTemplateEngine());
+    
     // get("/stylists/:id", (request, response) -> {
     //    HashMap<String, Object> model = new HashMap<String, Object>();
     //    Stylist stylist = Stylist.find(Integer.parseInt(request.params(":id")));
