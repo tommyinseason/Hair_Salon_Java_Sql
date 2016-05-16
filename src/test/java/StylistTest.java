@@ -70,11 +70,11 @@ public class StylistTest {
     Stylist myStylist = new Stylist("Mary");
     myStylist.save();
 
-    System.out.println("myStylistid " + myStylist.getId());
+    // System.out.println("myStylistid " + myStylist.getId());
 
-    Client firstClient = new Client("Dude", 1);
+    Client firstClient = new Client("Dude", myStylist.getId());
     firstClient.save();
-    Client secondClient = new Client("Chick", 2);
+    Client secondClient = new Client("Chick", myStylist.getId());
     secondClient.save();
 
     Client[] clients = new Client[] { firstClient, secondClient };
