@@ -19,11 +19,11 @@ public class ClientTest {
     }
   }
 
-  // @Test
-  // public void Client_instantiatesCorrectly_true() {
-  //   Client myClient = new Client("Mary", 1);
-  //   assertEquals(true, myClient instanceof Client);
-  // }
+  @Test
+  public void Client_instantiatesCorrectly_true() {
+    Client myClient = new Client("Mary", 1);
+    assertEquals(true, myClient instanceof Client);
+  }
   //
   // @Test
   // public void getName_instantiatesWithName_String() {
