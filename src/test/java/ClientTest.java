@@ -24,13 +24,13 @@ public class ClientTest {
     Client myClient = new Client("Mary", 1);
     assertEquals(true, myClient instanceof Client);
   }
-  //
-  // @Test
-  // public void getName_instantiatesWithName_String() {
-  //   Client myClient = new Client("Mary", 1);
-  //   assertEquals("Thai E San", myClient.getName());
-  // }
-  //
+
+  @Test
+  public void getName_instantiatesWithName_String() {
+    Client myClient = new Client("Mary", 1);
+    assertEquals("Mary", myClient.getName());
+  }
+
   // @Test
   // public void getLocation_instantiatesWithLocation_String() {
   //   Client myClient = new Client("Mary", 1);
