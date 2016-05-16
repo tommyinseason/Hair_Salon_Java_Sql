@@ -36,78 +36,78 @@ public class AppTest extends FluentTest {
        con.createQuery(deleteStylistsQuery).executeUpdate();
      }
    }
-//    @Test
-//    public void rootTest() {
-//      goTo("http://localhost:4567/");
-//      assertThat(pageSource()).contains("Client Stylists");
-//      assertThat(pageSource()).contains("View Stylists List");
-//      assertThat(pageSource()).contains("Add a New Stylist");
-//    }
-//
-//    @Test
-//    public void stylistIsCreatedTest() {
-//      goTo("http://localhost:4567/");
-//      click("a", withText("Add a New Stylist"));
-//      fill("#type").with("Mary");
-//      submit(".btn");
-//      assertThat(pageSource()).contains("Your stylist has been saved.");
-//    }
-//
-//    @Test
-//    public void stylistIsDisplayedTest() {
-//      Stylist myStylist = new Stylist("Mary");
-//      myStylist.save();
-//      String stylistPath = String.format("http://localhost:4567/stylists/%d", myStylist.getId());
-//      goTo(stylistPath);
-//      assertThat(pageSource()).contains("Mary");
-//    }
-//
-//    @Test
-//    public void stylistShowPageDisplaysName() {
-//      goTo("http://localhost:4567/stylists/new");
-//      fill("#type").with("Mary");
-//      submit(".btn");
-//      click("a", withText("View Stylists"));
-//      click("a", withText("Mary"));
-//      assertThat(pageSource()).contains("Mary");
-//    }
-//
-//    @Test
-//    public void stylistTasksFormIsDisplayed() {
-//      goTo("http://localhost:4567/stylists/new");
-//      fill("#type").with("Thai");
-//      submit(".btn");
-//      click("a", withText("View Stylists"));
-//      click("a", withText("Mary"));
-//      click("a", withText("Add a new client"));
-//      assertThat(pageSource()).contains("Add a new client:");
-//    }
-//
-//    @Test
-//    public void clientsIsAddedAndDisplayed() {
-//      goTo("http://localhost:4567/stylists/new");
-//      fill("#type").with("Mary");
-//      submit(".btn");
-//      click("a", withText("View Stylists"));
-//      click("a", withText("Mary"));
-//      click("a", withText("Add a new client"));
-//      fill("#name").with("Stacy");
-//      submit(".btn");
-//      click("a", withText("View stylists"));
-//      click("a", withText("Mary"));
-//      assertThat(pageSource()).contains("All stylists");
-//    }
-//    @Test
-//    public void allClientsDisplayNameOnStylistPage() {
-//      Stylist myStylist = new Stylist("Mary");
-//      myStylist.save();
-//      Client firstClient = new Client("Trisha", myStylist.getId());
-//      firstClient.save();
-//      Client secondClient = new Client("Stacy", myStylist.getId());
-//      secondClient.save();
-//      String stylistPath = String.format("http://localhost:4567/stylists/%d", myStylist.getId());
-//      goTo(stylistPath);
-//      assertThat(pageSource()).contains("Trisha");
-//      assertThat(pageSource()).contains("Stacy");
-//    }
+   @Test
+   public void rootTest() {
+     goTo("http://localhost:4567/");
+     assertThat(pageSource()).contains("Stylists and Clients");
+     assertThat(pageSource()).contains("View Stylists List");
+     assertThat(pageSource()).contains("Add a New Stylist");
+   }
+
+   @Test
+   public void stylistIsCreatedTest() {
+     goTo("http://localhost:4567/");
+     click("a", withText("Add a New Stylist"));
+     fill("#name").with("Mary");
+     submit(".btn");
+     assertThat(pageSource()).contains("Your stylist has been saved.");
+   }
+
+   @Test
+   public void stylistIsDisplayedTest() {
+     Stylist myStylist = new Stylist("Mary");
+     myStylist.save();
+     String stylistPath = String.format("http://localhost:4567/stylists/%d", myStylist.getId());
+     goTo(stylistPath);
+     assertThat(pageSource()).contains("Mary");
+   }
+
+   @Test
+   public void stylistShowPageDisplaysName() {
+     goTo("http://localhost:4567/stylists/new");
+     fill("#type").with("Mary");
+     submit(".btn");
+     click("a", withText("View Stylists"));
+     click("a", withText("Mary"));
+     assertThat(pageSource()).contains("Mary");
+   }
+
+   @Test
+   public void stylistTasksFormIsDisplayed() {
+     goTo("http://localhost:4567/stylists/new");
+     fill("#type").with("Thai");
+     submit(".btn");
+     click("a", withText("View Stylists"));
+     click("a", withText("Mary"));
+     click("a", withText("Add a new client"));
+     assertThat(pageSource()).contains("Add a new client:");
+   }
+
+   @Test
+   public void clientsIsAddedAndDisplayed() {
+     goTo("http://localhost:4567/stylists/new");
+     fill("#type").with("Mary");
+     submit(".btn");
+     click("a", withText("View Stylists"));
+     click("a", withText("Mary"));
+     click("a", withText("Add a new client"));
+     fill("#name").with("Stacy");
+     submit(".btn");
+     click("a", withText("View stylists"));
+     click("a", withText("Mary"));
+     assertThat(pageSource()).contains("All stylists");
+   }
+   @Test
+   public void allClientsDisplayNameOnStylistPage() {
+     Stylist myStylist = new Stylist("Mary");
+     myStylist.save();
+     Client firstClient = new Client("Trisha", myStylist.getId());
+     firstClient.save();
+     Client secondClient = new Client("Stacy", myStylist.getId());
+     secondClient.save();
+     String stylistPath = String.format("http://localhost:4567/stylists/%d", myStylist.getId());
+     goTo(stylistPath);
+     assertThat(pageSource()).contains("Trisha");
+     assertThat(pageSource()).contains("Stacy");
+   }
  }
