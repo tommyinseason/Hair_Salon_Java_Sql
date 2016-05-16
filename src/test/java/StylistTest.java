@@ -70,10 +70,10 @@ public class StylistTest {
     Stylist myStylist = new Stylist("Mary");
     myStylist.save();
 
-    // System.out.println("myStylistid " + myStylist.getId());
+    System.out.println("myStylistid " + myStylist.getId());
 
     Client firstClient = new Client("Dude", 1);
-    firstClient.save(); //name, c id, location, price
+    firstClient.save();
     Client secondClient = new Client("Chick", 2);
     secondClient.save();
 
