@@ -36,27 +36,27 @@ public class ClientTest {
   }
 
   @Test
-  public void equals_returnsTrueIfDescriptionsAreTheSame() {
+  public void equals_returnsTrueIfNamesAreTheSame() {
     Client firstClient = new Client("Mary", 1);
     Client secondClient = new Client("Mary", 1);
     assertTrue(firstClient.equals(secondClient));
   }
 
-  // @Test
-  // public void save_returnsTrueIfDescriptionsAreTheSame() {
-  //   Client myClient = new Client("Mary", 1);
-  //   myClient.save();
-  //   assertTrue(Client.all().get(0).equals(myClient));
-  // }
-  //
-  // @Test
-  // public void save_assignsIdToObject() {
-  //   Client myClient = new Client("Mary", 1);
-  //   myClient.save();
-  //   Client savedClient = Client.all().get(0);
-  //   assertEquals(myClient.getId(), savedClient.getId());
-  // }
-  //
+  @Test
+  public void save_returnsTrueIfDescriptionsAreTheSame() {
+    Client myClient = new Client("Mary", 1);
+    myClient.save();
+    assertTrue(Client.all().get(0).equals(myClient));
+  }
+  
+  @Test
+  public void save_assignsIdToObject() {
+    Client myClient = new Client("Mary", 1);
+    myClient.save();
+    Client savedClient = Client.all().get(0);
+    assertEquals(myClient.getId(), savedClient.getId());
+  }
+
   // @Test
   // public void find_findsClientInDatabase_true() {
   //   Client myClient = new Client ("Mary", 1);
