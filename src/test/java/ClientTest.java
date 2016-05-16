@@ -30,24 +30,11 @@ public class ClientTest {
     Client myClient = new Client("Mary", 1);
     assertEquals("Mary", myClient.getName());
   }
+  @Test
+  public void all_emptyAtFirst() {
+    assertEquals(Client.all().size(), 0);
+  }
 
-  // @Test
-  // public void getLocation_instantiatesWithLocation_String() {
-  //   Client myClient = new Client("Mary", 1);
-  //   assertEquals("SW", myClient.getLocation());
-  // }
-  //
-  // @Test
-  // public void getPrice_instantiatesWithPrice_int() {
-  //   Client myClient = new Client("Mary", 1);
-  //   assertEquals(2, myClient.getPrice());
-  // }
-  //
-  // @Test
-  // public void all_emptyAtFirst() {
-  //   assertEquals(Client.all().size(), 0);
-  // }
-  //
   // @Test
   // public void equals_returnsTrueIfDescriptionsAreTheSame() {
   //   Client firstClient = new Client("Mary", 1);

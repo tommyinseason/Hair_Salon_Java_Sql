@@ -7,3 +7,4 @@ Description: Database of one-to-many to organize a hair stylist and all their cl
 * CREATE DATABASE hair_salon;
 * CREATE TABLE stylists (id serial PRIMARY KEY, name varchar);
 * CREATE TABLE clients (id serial PRIMARY KEY, name varchar, stylistid int);
+* CREATE DATABASE hair_salon_test WITH TEMPLATE hair_salon;
