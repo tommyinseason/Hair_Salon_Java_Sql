@@ -19,8 +19,8 @@ public class App {
 
     post("/stylists", (request, response) -> {
         HashMap<String, Object> model = new HashMap<String, Object>();
-        String name = request.queryParams("name");
-        Stylist newStylist = new Stylist(name);
+        String stylistName = request.queryParams("stylistName");
+        Stylist newStylist = new Stylist(stylistName);
         newStylist.save();
         model.put("template", "templates/stylist-success.vtl");
         return new ModelAndView(model, layout);
@@ -57,7 +57,7 @@ public class App {
 
      get("/stylists/:stylist_id/clients/:id", (request, response) -> {
          HashMap<String, Object> model = new HashMap<String, Object>();
-         Stylist stylist = Stylist.find(Integer.parseInt(request.queryParams("stylist_id")));
+         Stylist stylist = Stylist.find(Integer.parseInt(request.queryParams("stylistid")));
          Client client = Client.find(Integer.parseInt(request.params(":id")));
          model.put("stylist", stylist);
          model.put("client", client);
@@ -69,9 +69,9 @@ public class App {
 
     post("/clients", (request, response) -> {
        HashMap<String, Object> model = new HashMap<String, Object>();
-       Stylist stylist = Stylist.find(Integer.parseInt(request.queryParams("stylist_id")));
-       String name = request.queryParams("name");
-       Client newClient = new Client(name, stylist.getId());
+       Stylist stylist = Stylist.find(Integer.parseInt(request.queryParams("stylistid")));
+       String stylistName = request.queryParams("stylistName");
+       Client newClient = new Client(stylistName, stylist.getId());
        newClient.save();
        model.put("stylist", stylist);
        model.put("template", "templates/stylist-clients-success.vtl");
@@ -81,9 +81,9 @@ public class App {
     post("/stylists/:stylist_id/clients/:id", (request, response) -> {
        HashMap<String, Object> model = new HashMap<String, Object>();
        Client client = Client.find(Integer.parseInt(request.params("id")));
-       String name = request.queryParams("name");
+       String stylistName = request.queryParams("stylistName");
        Stylist stylist = Stylist.find(client.getStylistId());
-       client.update(name);
+       client.update(stylistName);
        String url = String.format("/stylists/%d/clients/%d", stylist.getId(), client.getId());
        response.redirect(url);
        return new ModelAndView(model, layout);
@@ -111,8 +111,8 @@ public class App {
     post("/stylists/:id", (request, response) -> {
        HashMap<String, Object> model = new HashMap<String, Object>();
        Stylist stylist = Stylist.find(Integer.parseInt(request.params("id")));
-       String name = request.queryParams("name");
-       stylist.update(name);
+       String stylistName = request.queryParams("stylistName");
+       stylist.update(stylistName);
        String url = String.format("/stylists/%d", stylist.getId());
        response.redirect(url);
        return new ModelAndView(model, layout);
