@@ -72,7 +72,7 @@ public class AppTest extends FluentTest {
    }
 
    @Test
-     public void stylistTasksFormIsDisplayed() {
+     public void stylistClientsFormIsDisplayed() {
        goTo("http://localhost:4567/stylists/new");
        fill("#stylistName").with("Tami");
        submit(".btn");
@@ -83,18 +83,18 @@ public class AppTest extends FluentTest {
      }
 
    @Test
-     public void clientsIsAddedAndDisplayed() {
+     public void clientIsAddedAndDisplayed() {
        goTo("http://localhost:4567/stylists/new");
        fill("#stylistName").with("Mary");
        submit(".btn");
        click("a", withText("View Stylists"));
        click("a", withText("Mary"));
        click("a", withText("Add a new client"));
-       fill("#stylistName").with("Stacy");
+       fill("#clientName").with("Stacy");
        submit(".btn");
        click("a", withText("View stylists"));
        click("a", withText("Mary"));
-       assertThat(pageSource()).contains("All stylists");
+       assertThat(pageSource()).contains("Stacy");
      }
 
    @Test
